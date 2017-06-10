@@ -1,0 +1,145 @@
+{
+  "project_info": {
+    "project_number": "521566560128",
+    "firebase_url": "https://bennit-ai.firebaseio.com",
+    "project_id": "bennit-ai",
+    "storage_bucket": "bennit-ai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521566560128:android:27d689d63f1b7a06",
+        "android_client_info": {
+          "package_name": "com.google.samples.quickstart.signin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521566560128-jhiitt44b4b91cck36djuo64vufk7rjh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.google.samples.quickstart.signin",
+            "certificate_hash": "4d4fab392b9f69199f108fe1abb428392841c32a"
+          }
+        },
+        {
+          "client_id": "521566560128-h9t0if6qrt0d1lssp87u63p1ifoem5q2.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "521566560128-1n8snvd0iu9kje0b5b48bs06ncl4tdnp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY7xhtEcpXq8dAtHuS6HNSRjuYY000-mA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521566560128-2rbntrrqiiqu5p7fuohog1t9hbc3c0km.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bennitai.ios"
+              }
+            },
+            {
+              "client_id": "521566560128-h9t0if6qrt0d1lssp87u63p1ifoem5q2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521566560128:android:f5b2e2e873a739b3",
+        "android_client_info": {
+          "package_name": "com.bennitai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521566560128-7aum70e1bt4apcihngeunhlni7gmbee1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bennitai",
+            "certificate_hash": "ae1dce7e000556d6de6fd3ac1b929900b26aaade"
+          }
+        },
+        {
+          "client_id": "521566560128-jodm2h3c5qnfe9mgp9iid3mggi3etkp8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bennitai",
+            "certificate_hash": "4d4fab392b9f69199f108fe1abb428392841c32a"
+          }
+        },
+        {
+          "client_id": "521566560128-h9t0if6qrt0d1lssp87u63p1ifoem5q2.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "521566560128-7pshlpvge0358q5o5f3hoj2lutti0kht.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bennitai",
+            "certificate_hash": "9f94dd7d2b69e053ef77f20c850fefd6f18c2261"
+          }
+        },
+        {
+          "client_id": "521566560128-8l9b1l8f7g527rfadesa2ksg6k5c3p3p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bennitai",
+            "certificate_hash": "ce8df589211919442d04dff517f0686bca1cba2f"
+          }
+        },
+        {
+          "client_id": "521566560128-1n8snvd0iu9kje0b5b48bs06ncl4tdnp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY7xhtEcpXq8dAtHuS6HNSRjuYY000-mA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521566560128-2rbntrrqiiqu5p7fuohog1t9hbc3c0km.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bennitai.ios"
+              }
+            },
+            {
+              "client_id": "521566560128-h9t0if6qrt0d1lssp87u63p1ifoem5q2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

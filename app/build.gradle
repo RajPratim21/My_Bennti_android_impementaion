@@ -1,0 +1,120 @@
+buildscript {
+    ext {
+        android_support_lib_version = '25.3.1'
+        android_play_services_version = '10.2.6'
+        multidex_version = '1.0.1'
+
+    }
+}
+
+apply plugin: 'base'
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+
+    compileSdkVersion 25
+    buildToolsVersion '25.0.0'
+    defaultConfig {
+        applicationId "com.bennitai"
+        minSdkVersion 15
+        targetSdkVersion 25
+
+
+        multiDexEnabled true
+        versionCode 1
+        versionName "0.1.0"
+
+        vectorDrawables.useSupportLibrary = true
+    }
+    signingConfigs {
+        debug {
+            keyAlias 'bennit-debug'
+            storeFile file('../bennit-debug-key.jks')
+            keyPassword 'bennitai'
+            storePassword 'bennitai'
+        }
+
+        release {
+            storeFile file("../bennit-release-key.jks")
+            storePassword 'bennitai'
+            keyAlias "bennit-release"
+            keyPassword 'bennitai'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+    lintOptions {
+        warning 'InvalidPackage'
+    }
+    packagingOptions {
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+    // Add Kotlin source files
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+}
+
+// this configuration allows dependencies to be cached for 8hours before checking online
+// (improves build time)
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 8, 'hours'
+    resolutionStrategy.force "com.android.support:support-annotations:$android_support_lib_version"
+}
+
+dependencies {
+    //compile 'com.ibm.mobilefirstplatform.clientsdk.android:core:[2.0.0,3.0.0)'
+//    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile "com.android.support:appcompat-v7:$android_support_lib_version"
+    compile "com.android.support:design:$android_support_lib_version"
+    //compile 'com.ibm.watson.developer_cloud:java-sdk:3.3.1'
+    // Dependency for Google Sign-In
+    compile "com.google.android.gms:play-services-auth:$android_play_services_version"
+    compile "com.android.support:multidex:$multidex_version"
+    compile "com.google.firebase:firebase-messaging:$android_play_services_version"
+    compile 'com.android.volley:volley:1.0.0'
+    compile 'com.ibm.mobile.foundation:ibmmobilefirstplatformfoundation:8.0.2017012919'
+    compile 'com.google.android.gms:play-services:10.2.6'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:support-v4:25.3.1'
+    testCompile 'junit:junit:4.12'
+}
+
+task loadDebugKeys << {
+    def rootDir = project.rootDir
+    def localProperties = new File(rootDir, "local.properties")
+    if (localProperties.exists()) {
+        Properties properties = new Properties()
+        localProperties.withInputStream { instr ->
+            properties.load(instr)
+        }
+        android.signingConfigs.debug.storePassword = properties['debug.password.store'] ?: System.getenv('DEBUG_PASSWORD_STORE')
+        android.signingConfigs.debug.keyPassword = properties['debug.password.key'] ?: System.getenv('DEBUG_PASSWORD_KEY')
+    } else {
+        // for build server, get store- and key- password from ENV variable
+        android.signingConfigs.debug.storePassword = System.getenv('DEBUG_PASSWORD_STORE')
+        android.signingConfigs.debug.keyPassword = System.getenv('DEBUG_PASSWORD_KEY')
+    }
+}
+
+tasks.whenTaskAdded { theTask ->
+    if (theTask.name.equals("packageDebug")) {
+        theTask.dependsOn "loadDebugKeys"
+    }
+}
+
+apply plugin: 'com.google.gms.google-services'
